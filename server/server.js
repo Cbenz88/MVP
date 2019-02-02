@@ -5,7 +5,7 @@ const path = require("path");
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const yelp = require('yelp-fusion');
-const apiKey = '9EkUgFcZLHucn0PQZXO-g8ePzBZMr_bhtR6GDvL1FmGL_95ReRcgD2wrT0LGpPUzq656QQ4qOFquH0npwQ3TMEDkskPEAeOq-J0ZEnPXM9MY4QheHpLmWrIaRrVUXHYx';
+const apiKey = '';
 const searchRequest = {
     term: 'Bars',
     latitude: 40.7260188,
@@ -45,7 +45,7 @@ app.post('/api/user', function (req, res) {
     console.log(req.body.vote);
     console.log(req.body.user);
     connection.query(
-        `INSERT IGNORE INTO bars (name) VALUES (?)`,[bar.name],
+        `INSERT IGNORE INTO users (name) VALUES (?)`,[req.body.user],
         (err) => {
           if (err) {
             console.log(err)
